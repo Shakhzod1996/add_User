@@ -224,10 +224,21 @@
           <h5>You can't undo this operation</h5>
 
           <div class="buttons-remove">
-            <button class="yes-delete" onclick="clickedForTrue()">Yes</button>
-            <button class="no-delete">No</button>
+            <form class="sum-form">
+              <button type="sumbit" class="yes-delete">Yes</button>
+            </form>
+            
+            <button class="no-delete" onclick="cancel()">No</button>
           </div>
+
         </div>
+
+        <!-- ?Remove succesfuly -->
+        <div class="remove-succes-fixed">
+          <p>Submitted Succesfully</p>
+          <i class='bx bx-check'></i>
+        </div>
+        
       </div>
     </div>
   </div>

@@ -306,6 +306,30 @@ body {
   margin-left: 10px;
 }
 
+.remove-succes-fixed {
+  position: fixed;
+  padding: 20px;
+  top: 200px;
+  right: 20px;
+  z-index: 333;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  background-color: rgb(244, 233, 212);
+  color: rgb(252, 109, 0);
+  border-radius: 5px;
+  display: none;
+}
+
+.remove-succes-fixed-show {
+  display: flex;
+}
+
+.remove-succes-fixed i {
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
 .modal2 {
   position: fixed;
   top: 50%;
@@ -586,14 +610,8 @@ body {
   transition: all .4s ease;
 }
 
-.buttons-remove button:first-child {
-  background-color: red;
-  color: #fff;
-  font-weight: 600;
-}
-
 .buttons-remove button:last-child {
-  background-color: rgb(113, 112, 112) !important;
+  background-color: rgb(113, 112, 112) ;
   color: #fff;
 }
 
@@ -601,3 +619,13 @@ body {
   opacity: .7;
 }
 
+
+.yes-delete {
+  background-color: red !important;
+  color: #fff !important;
+  font-weight: 500;
+}
+
+/* .table-body tr {
+  display: flex;
+} */
