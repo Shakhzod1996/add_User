@@ -127,7 +127,6 @@ body {
 
 .uset-data {
   margin-top: 30px;
-  width: 100%;
   background-color: #fff;
   width: 90%;
   margin: auto;
@@ -159,7 +158,7 @@ body {
   margin-top: 30px;
 }
 
-.table th {
+.table .thh {
   background-color: #3c44b126;
   color: #333996;
   font-size: 16px;
@@ -168,6 +167,9 @@ body {
 
 .table td {
   font-size: 16px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+
 }
 
 .modal1 {
@@ -251,6 +253,16 @@ body {
   margin-top: 30px;
 }
 
+.submit-btn {
+  background-color: #253053;
+  transition: all .4s ease;
+}
+
+.submit-btn:hover {
+  opacity: .8;
+  background-color: #253053;
+}
+
 .date {
   margin-top: 20px;
 }
@@ -276,6 +288,7 @@ body {
 .table tr {
   transition: all 0.4s ease;
 }
+
 
 .table tr:hover {
   background-color: rgb(252, 247, 247);
@@ -336,7 +349,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 500px;
-  height: 400px;
+  height: 450px;
   background-color: #fff;
   padding: 30px;
   display: none;
@@ -619,13 +632,50 @@ body {
   opacity: .7;
 }
 
-
 .yes-delete {
   background-color: red !important;
   color: #fff !important;
   font-weight: 500;
 }
 
-/* .table-body tr {
-  display: flex;
-} */
+tr .sort1, tr .sort2, tr .sort3, tr .sort4 {
+  color: #253053;
+  transition: all .4s ease;
+}
+
+
+
+.thh1:hover .sort1 {
+  transform: rotate(180deg);
+}
+
+.thh2:hover .sort2 {
+  transform: rotate(180deg);
+}
+
+.thh3:hover .sort3 {
+  transform: rotate(180deg);
+}
+
+.thh4:hover .sort4 {
+  transform: rotate(180deg);
+}
+
+.remove {
+  transition: all .4s ease;
+}
+
+.remove:hover {
+  background-color: #85595d8c !important;
+}
+
+.edit {
+  transition: all .4s ease;
+}
+
+.edit:hover {
+  background-color: #3c44b186 !important;
+}
+
+
+

@@ -10,6 +10,7 @@ let modal = document.querySelector(".modal1");
 let modalBack = document.querySelector(".modal-back");
 
 let addUser = document.querySelector(".add-use");
+let tableHead = document.querySelector(".table-head");
 
 //? Modal Show
 addUser.addEventListener("click", () => {
@@ -31,7 +32,7 @@ let array = [
     id: count,
     userName: "Shaxzod",
     email: "shaxzod@gmail.com",
-    phoneNumber: +990901020440,
+    phoneNumber: "+990901020440",
     select: "HR",
   },
 ];
@@ -40,6 +41,15 @@ let newArr = [];
 function showCard(array) {
   newArr = [];
   array.map((item, index) => {
+    tableHead.innerHTML = `
+    <tr class='tr'>
+    <th scope="col" class='thh thh1' onclick='sortByName()'>Employee Name <i class='bx bx-sort-alt-2 sort1'></i></th>
+    <th scope="col" class='thh thh2' onclick='sortByEmail()'>Email Address (Personal) <i class='bx bx-sort-alt-2 sort2'></i></th>
+    <th scope="col" class='thh thh3' onclick='sortByNumber()'>Mobile Number <i class='bx bx-sort-alt-2 sort3'></i></th>
+    <th scope="col" class='thh thh4' onclick='sortByDepartament()'>Departament <i class='bx bx-sort-alt-2 sort4'></i></th>
+    <th scope="col" class='thh thh5'>Action</th>
+  </tr>
+  `;
     let div = `
     <tr class='tr-all' id='${item.id}'>
       <td class='user-td'>${item.userName}</td>
@@ -49,9 +59,8 @@ function showCard(array) {
       <td class='edit-td'>
       <i class='bx bx-edit-alt edit' onclick="editList('${item.id}')"></i>
       <i class='bx bx-x remove' id='${item.id}'onclick="removeList('${item.id}')"></i></td>
-  </tr>
+    </tr>
     `;
-
     newArr.push(div);
   });
   tableBody.innerHTML = newArr.join("");
@@ -111,13 +120,14 @@ function editList(id) {
       editName.value = item.userName;
       editEmail.value = item.email;
       editNumber.value = item.phoneNumber;
-      editItem(id, editName, editEmail, editNumber);
+      editSelect.value = item.select;
+      editItem(id, editName, editEmail, editNumber, editSelect);
     }
   });
 }
 
 let formSubmit1 = document.querySelector(".form-submit2");
-function editItem(id, editName, editEmail, editNumber) {
+function editItem(id, editName, editEmail, editNumber, editSelect) {
   let count2 = 1;
   formSubmit1.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -125,6 +135,8 @@ function editItem(id, editName, editEmail, editNumber) {
       array[id - 1].userName = editName.value;
       array[id - 1].email = editEmail.value;
       array[id - 1].phoneNumber = editNumber.value;
+      array[id - 1].select = editSelect.value;
+
       showCard(array);
       count2++;
     }
@@ -147,11 +159,11 @@ function removeList(id) {
     modalBack.classList.remove("modal1-back-show");
     modalForDelete.classList.remove("modal-for-delete-show");
 
-    let removeSuccess = document.querySelector('.remove-succes-fixed')
-    removeSuccess.classList.add('remove-succes-fixed-show')
+    let removeSuccess = document.querySelector(".remove-succes-fixed");
+    removeSuccess.classList.add("remove-succes-fixed-show");
 
     setTimeout(() => {
-    removeSuccess.classList.remove('remove-succes-fixed-show')
+      removeSuccess.classList.remove("remove-succes-fixed-show");
     }, 3000);
   });
 }
@@ -185,4 +197,38 @@ function resetList() {
   email.value = "";
   phoneNumber.value = "";
   phoneNumber.classList.remove("phone-border-red");
+}
+
+let sort1 = document.querySelector(".sort1");
+let sort2 = document.querySelector(".sort2");
+let sort3 = document.querySelector(".sort3");
+let sort4 = document.querySelector(".sort4");
+
+// ?Sort by Name
+function sortByName() {
+  const newArray = array.sort((a, b) => a.userName.localeCompare(b.userName));
+  array = newArray;
+  showCard(array);
+}
+
+// ?Sort By Email
+function sortByEmail() {
+  const newArray = array.sort((a, b) => a.email.localeCompare(b.email));
+  array = newArray;
+  showCard(array);
+}
+
+// ?Sort By number
+function sortByNumber() {
+  const newArray = array.sort((a, b) => a.phoneNumber - b.phoneNumber);
+  array = newArray;
+  showCard(array);
+
+}
+
+// ? Sort Bu Actions
+function sortByDepartament() {
+  const newArray = array.sort((a, b) => a.select.localeCompare(b.select));
+  array = newArray;
+  showCard(array);
 }
